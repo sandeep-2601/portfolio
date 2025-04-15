@@ -87,25 +87,49 @@ header {
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-nav ul {
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 70px;
+}
+
+.mobile-nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    z-index: 2000;
+}
+
+.primary-navigation {
     display: flex;
     justify-content: center;
     list-style: none;
-    padding: 20px 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
 }
 
-nav ul li {
+.primary-navigation li {
     margin: 0 20px;
 }
 
-nav ul li a {
+.primary-navigation a {
     text-decoration: none;
     color: var(--text-color);
     font-weight: 500;
     transition: color 0.3s;
 }
 
-nav ul li a:hover {
+.primary-navigation a:hover {
     color: #007bff;
 }
 
@@ -301,15 +325,56 @@ section h2 {
 }
 
 @media (max-width: 768px) {
-    /* Navigation fixes */
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 10px 0;
+    .mobile-nav-toggle {
+        display: block;
+        position: fixed;
+        right: 1rem;
+        top: 1rem;
+        z-index: 9999;
+        background: transparent;
+        border: none;
+        color: var(--text-color);
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
     }
 
-    nav ul li {
-        margin: 5px 10px;
+    .primary-navigation {
+        position: fixed;
+        inset: 0 0 0 0;
+        background: var(--nav-bg);
+        padding: 6rem 2rem 2rem;
+        transform: translateX(100%);
+        transition: transform 350ms ease-out;
+        display: flex;
+        flex-direction: column;
+        z-index: 9998;
+    }
+
+    .primary-navigation[data-visible="true"] {
+        transform: translateX(0%);
+        box-shadow: var(--card-shadow);
+    }
+
+    .primary-navigation li {
+        margin: 0.5rem 0;
+        opacity: 0.8;
+        transition: opacity 0.3s;
+    }
+
+    .primary-navigation li:hover {
+        opacity: 1;
+    }
+
+    .primary-navigation a {
+        display: block;
+        padding: 0.5rem 0;
+        font-size: 1.2rem;
+    }
+
+    .theme-toggle {
+        margin-top: auto;
+        padding: 1rem 0;
     }
 
     /* Profile container fixes */
