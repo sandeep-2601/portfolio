@@ -301,23 +301,23 @@ section h2 {
 }
 
 @media (max-width: 768px) {
-    .timeline::before {
-        left: 30px;
+    /* Navigation fixes */
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px 0;
     }
 
-    .timeline-content {
-        width: calc(100% - 60px);
-        margin-left: 60px;
+    nav ul li {
+        margin: 5px 10px;
     }
 
-    .timeline-content::before {
-        left: -55px;
-    }
-
+    /* Profile container fixes */
     .profile-container {
         flex-direction: column;
         text-align: center;
         gap: 20px;
+        padding: 20px;
     }
 
     .profile-info {
@@ -325,8 +325,64 @@ section h2 {
     }
 
     .profile-photo {
-        width: 160px;
-        height: 160px;
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+    }
+
+    /* Work experience fixes */
+    .timeline-content {
+        width: 100%;
+        margin: 0;
+        padding: 20px;
+    }
+
+    /* Text size adjustments */
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+
+    /* Ensure the hero section takes full height on mobile */
+    .hero {
+        min-height: 100vh;
+        height: auto;
+        padding: 100px 0 40px;
+    }
+
+    /* Adjust header for mobile */
+    header {
+        height: auto;
+    }
+
+    /* Make sure the navigation doesn't overflow */
+    nav {
+        width: 100%;
+        overflow-x: hidden;
+    }
+}
+
+/* Additional fixes for very small screens */
+@media (max-width: 480px) {
+    .profile-photo {
+        width: 120px;
+        height: 120px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero h2 {
+        font-size: 1.2rem;
+    }
+
+    nav ul li {
+        margin: 3px 8px;
+        font-size: 0.9rem;
     }
 }
 
